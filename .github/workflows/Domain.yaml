@@ -1,0 +1,34 @@
+name: Domain
+
+on:
+  push:
+    branches: [ "dev" ]
+  pull_request:
+    branches: [ "dev", "release" ]
+
+jobs:
+  build:
+    defaults:
+      run:
+        working-directory: Gefest.Domain
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: 6.0
+    - name: Restore dependencies
+      run: dotnet restore
+    - name: Build
+      run: dotnet build --no-restore
+    - name: Test
+      run: dotnet test --no-build --verbosity normal
+    - name: Upload dotnet test results
+      uses: actions/upload-artifact@v3
+      with:
+        name: dotnet-results
+        path: /home/runner/work/Gefest/Gefest/Gefest.Domain/bin/Debug/net6.0
+      if: ${{ always() }}
