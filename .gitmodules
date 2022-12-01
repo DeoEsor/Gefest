@@ -1,0 +1,3 @@
+[submodule "Solvers/OpenFoamShell.NET/"]
+	path = Solvers/OpenFoamShell.NET/
+	url = https://github.com/DeoEsor/OpenFoamShell.NET.git
