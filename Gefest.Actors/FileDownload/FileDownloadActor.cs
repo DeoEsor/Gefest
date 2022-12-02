@@ -58,7 +58,7 @@ public class FileDownloadActor
     public async Task HandleRequest(DownloadRequestMessage request)
     {
         _currentUri = request.Uri;
-        _currentTargetPath = Path.GetTempFileName();
+        _currentTargetPath = request.Path;
         _currentDownloadRequester = Sender;
 
         _currentDownloadRequester.Tell(new DownloadStartedMessage(_currentUri));
@@ -69,7 +69,7 @@ public class FileDownloadActor
     private async Task StartDownloadAsync()
     {
         using var client = new HttpClient();
-        await client.DownloadLargeFile("", "");
+        await client.DownloadLargeFile(_currentUri?.AbsoluteUri!, _currentTargetPath!);
 
         _currentDownloadRequester.Tell(DownloadCompletedMessage.CreateMessage(_currentUri, _currentTargetPath));
         Become(Ready);

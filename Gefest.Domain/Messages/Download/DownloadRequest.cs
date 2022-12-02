@@ -8,7 +8,11 @@ namespace Gefest.Domain.Messages.Download;
 public sealed class DownloadRequestMessage 
     : UriMessage
 {
-    public DownloadRequestMessage(Uri uri)
+    public string Path { get; }
+
+    public DownloadRequestMessage(Uri uri, string path)
         : base(uri)
-    { }
+    {
+        Path = path;
+    }
 }
