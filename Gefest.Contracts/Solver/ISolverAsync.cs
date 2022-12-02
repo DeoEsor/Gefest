@@ -1,4 +1,4 @@
-namespace Gefest.Contracts;
+namespace Gefest.Contracts.Solver;
 
 /// <summary>
 /// 

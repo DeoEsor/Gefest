@@ -1,4 +1,4 @@
-namespace Gefest.Contracts;
+namespace Gefest.Contracts.Solver;
 
 /// <summary>
 /// 
@@ -16,12 +16,12 @@ public interface ISolverReporterAsync
 /// <summary>
 /// 
 /// </summary>¬
-/// <typeparam name="T"></typeparam>
 public interface ISolverReporter
 {
     /// <summary>
     /// 
     /// </summary>
+    /// <typeparam name="T"></typeparam>
     /// <returns></returns>
-    ISolverResult<T> Report();
+    ISolverResult<T> Report<T>();
 }
