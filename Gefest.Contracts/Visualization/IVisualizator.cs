@@ -1,4 +1,4 @@
-namespace Gefest.Contracts;
+namespace Gefest.Contracts.Visualization;
 
 /// <summary>
 /// 
@@ -6,5 +6,8 @@ namespace Gefest.Contracts;
 /// <typeparam name="T"></typeparam>
 public interface IVisualizator<T>
 {
-    void Visualize():
+    /// <summary>
+    /// 
+    /// </summary>
+    void Visualize();
 }
