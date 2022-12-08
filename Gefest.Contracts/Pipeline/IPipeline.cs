@@ -15,4 +15,9 @@ public interface IPipeline
     /// </summary>
     /// <param name="task"></param>
     void AddTask(Task task);
+
+    /// <summary>
+    /// 
+    /// </summary>
+    Task ExecuteAsync();
 }
